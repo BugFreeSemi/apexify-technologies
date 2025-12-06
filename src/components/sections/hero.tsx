@@ -16,7 +16,12 @@ const HeroSection = () => {
           quality={100}
           className="object-cover opacity-20 saturate-[0.7]" />
 
-        <div className="absolute inset-0 !bg-[url(https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/97e72688-64fa-4378-ae71-8c4cc8dea841/visual-edit-uploads/1765005654787-045ckh7jnzpv.webp)] !bg-cover !bg-center"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url(https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/97e72688-64fa-4378-ae71-8c4cc8dea841/visual-edit-uploads/1765005654787-045ckh7jnzpv.webp)'
+          }}
+        ></div>
         
         {/* Gradient Blob */}
         <div
