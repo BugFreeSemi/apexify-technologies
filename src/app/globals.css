@@ -1,0 +1,255 @@
+/* Updated: 2025-12-06T06:49:17.417Z */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&family=Roboto:wght@400;500;700&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #1A1A1A; /* Text Primary */
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1A1A1A;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1A1A1A;
+
+  --color-primary: #4169FF; /* Primary Blue */
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #F8F9FA; /* Light Gray */
+  --color-secondary-foreground: #1A1A1A;
+
+  --color-muted: #F8F9FA; /* Light Gray */
+  --color-muted-foreground: #6B7280; /* Text Secondary */
+
+  --color-accent: #F8F9FA; /* Light Gray */
+  --color-accent-foreground: #1A1A1A;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #fafafa;
+
+  --color-border: #E5E7EB; /* Border Light */
+  --color-input: #E5E7EB; /* Border Light */
+  --color-ring: #4169FF; /* Primary Blue */
+
+  --color-chart-1: #e67e22;
+  --color-chart-2: #2d8659;
+  --color-chart-3: #1e3a5f;
+  --color-chart-4: #f1c40f;
+  --color-chart-5: #e74c3c;
+
+  --radius-lg: 1.25rem; /* Cards: 20px */
+  --radius-md: 0.625rem; /* Buttons: 10px */
+  --radius-sm: 0.5rem; /* Small elements: 8px */
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  /* Custom Colors */
+  --color-primary-blue: #4169FF;
+  --color-primary-purple: #6B3FF5;
+  --color-gradient-start: #8B5CF6;
+  --color-gradient-end: #3B82F6;
+  --color-dark-background: #0F1B2D;
+  --color-secondary-dark: #1A2C42;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-light: #FFFFFF;
+  --color-border-light: #E5E7EB;
+  --color-accent-cyan: #38BDF8;
+  --color-success-green: #10B981;
+
+  /* Font Families */
+  --font-display: "Roboto Slab", serif;
+  --font-body: "Roboto", sans-serif;
+}
+
+/*
+  The default border color has changed to currentColor in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: var(--radius-md);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3rem; /* 48px */
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  h2 {
+    font-size: 2.25rem; /* 36px */
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .text-hero-display {
+    font-family: var(--font-display);
+    font-size: 4.5rem; /* 72px */
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-overline {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .text-body-lg {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  .text-body-sm {
+    font-size: 0.875rem; /* 14px */
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .text-button {
+    font-size: 1rem; /* 16px */
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
+  .text-stat-number {
+    font-family: var(--font-display);
+    font-size: 4rem; /* 64px */
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .container {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .container-lg {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .container-md {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
